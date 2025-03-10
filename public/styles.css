@@ -1,0 +1,143 @@
+/* Poppins font, because it’s just the vibe */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Animations to keep it fun */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes titleGlow {
+    0% { text-shadow: 0 0 5px rgba(79, 70, 229, 0.5); }
+    50% { text-shadow: 0 0 15px rgba(76, 114, 237, 0.8), 0 0 25px rgba(174, 171, 234, 0.5); }
+    100% { text-shadow: 0 0 5px rgba(79, 70, 229, 0.5); }
+}
+
+@keyframes pulseSlow {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes particleMove {
+    0% { transform: translate(0, 0); opacity: 0.8; }
+    50% { transform: translate(var(--move-x), var(--move-y)); opacity: 0.4; }
+    100% { transform: translate(0, 0); opacity: 0.8; }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Container fades in nice and smooth */
+.container {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Title gets that glow effect */
+.animate-title {
+    animation: titleGlow 3s infinite ease-in-out;
+}
+
+/* Inputs with some hover and focus action */
+.field-group label {
+    transform: translateY(0);
+}
+
+.field-group input:focus + label,
+.field-group input:not(:placeholder-shown) + label {
+    transform: translateY(-20px);
+    font-size: 0.75rem;
+    color: #4f46e5;
+}
+
+input:focus, button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.4);
+}
+
+/* Button hover and animation */
+button:hover {
+    transform: translateY(-3px) scale(1.05);
+}
+
+.animate-pulse-slow {
+    animation: pulseSlow 4s infinite ease-in-out;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Background particles moving around */
+.particles {
+    position: absolute;
+    inline-size: 100%;
+    block-size: 100%;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    inline-size: 10px;
+    block-size: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: particleMove 6s infinite ease-in-out;
+}
+
+.particle-1 {
+    inset-block-start: 10%;
+    inset-inline-start: 20%;
+    --move-x: 50px;
+    --move-y: -30px;
+    animation-duration: 5s;
+}
+
+.particle-2 {
+    inset-block-start: 30%;
+    inset-inline-end: 15%;
+    --move-x: -40px;
+    --move-y: 20px;
+    animation-duration: 7s;
+}
+
+.particle-3 {
+    inset-block-end: 20%;
+    inset-inline-start: 25%;
+    --move-x: 30px;
+    --move-y: -50px;
+    animation-duration: 6s;
+}
+
+.particle-4 {
+    inset-block-end: 10%;
+    inset-inline-end: 30%;
+    --move-x: -20px;
+    --move-y: 40px;
+    animation-duration: 8s;
+}
+
+/* Status colors */
+.text-red-600 { color: #dc2626; }
+.text-green-600 { color: #10b981; }
+
+/* Responsive stuff for smaller screens */
+@media (max-width: 640px) {
+    .container {
+        max-inline-size: 90%;
+        padding: 1.5rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+}

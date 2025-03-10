@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form - Metana</title>
+    <!-- Tailwind’s my shortcut to good-looking styles -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Poppins font, keeps it sharp and clean -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-purple-700 via-indigo-600 to-cyan-500 min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Adding some background particles for that extra wow -->
+    <div class="particles absolute inset-0 pointer-events-none">
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+    </div>
+
+    <!-- The form container, going for that frosted glass look -->
+    <div class="container bg-white bg-opacity-90 backdrop-blur-lg p-8 rounded-2xl shadow-2xl w-full max-w-md transform transition-all hover:shadow-3xl relative z-10">
+        <h1 class="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-400 mb-8 animate-title">Job Application</h1>
+        <form id="applicationForm" enctype="multipart/form-data" class="space-y-6">
+            <!-- Name field, let’s see who’s applying -->
+            <div class="field-group">
+                <label for="name" class="block text-sm font-medium text-gray-800 transition-all duration-300">Full Name</label>
+                <input type="text" id="name" name="name" required class="mt-1 block w-full p-3 border border-gray-300 rounded-lg bg-gray-50 focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all duration-300 hover:border-indigo-400">
+            </div>
+            <!-- Email, need a way to reach you -->
+            <div class="field-group">
+                <label for="email" class="block text-sm font-medium text-gray-800 transition-all duration-300">Email Address</label>
+                <input type="email" id="email" name="email" required class="mt-1 block w-full p-3 border border-gray-300 rounded-lg bg-gray-50 focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all duration-300 hover:border-indigo-400">
+            </div>
+            <!-- Phone, just 10 digits please -->
+            <div class="field-group">
+                <label for="phone" class="block text-sm font-medium text-gray-800 transition-all duration-300">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" class="mt-1 block w-full p-3 border border-gray-300 rounded-lg bg-gray-50 focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all duration-300 hover:border-indigo-400">
+            </div>
+            <!-- CV upload, sticking to PDF or DOCX -->
+            <div class="field-group">
+                <label for="cv" class="block text-sm font-medium text-gray-800 transition-all duration-300">Upload CV (PDF/DOCX)</label>
+                <input type="file" id="cv" name="cv" accept=".pdf,.docx" required class="mt-1 block w-full p-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-indigo-600 file:text-white file:hover:bg-indigo-700 transition-all duration-300">
+            </div>
+            <!-- Submit button with a spinner for loading -->
+            <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-indigo-600 to-cyan-500 text-white p-3 rounded-lg hover:from-indigo-700 hover:to-cyan-600 transition-all duration-500 transform hover:scale-105 hover:shadow-lg font-semibold animate-pulse-slow flex items-center justify-center">
+                <span id="btnText">Submit Application</span>
+                <span id="loadingSpinner" class="hidden ml-2 w-5 h-5 border-2 border-t-transparent border-white rounded-full animate-spin"></span>
+            </button>
+        </form>
+        <!-- Just the status message, no extra buttons this time -->
+        <p id="status" class="mt-4 text-center hidden font-medium"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
